@@ -4,6 +4,11 @@ import React, { Suspense } from "react";
 import PostList from "./PostList";
 import { ErrorBoundary } from "react-error-boundary";
 
+/*
+the use API integrates with Suspense and error boundaries
+If the Promise passed to use is rejected, the fallback of the nearest Error Boundary will be displayed.
+*/
+
 export default function PageContent() {
   return (
     <div>
