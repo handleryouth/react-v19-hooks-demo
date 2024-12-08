@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import React, { useOptimistic } from "react";
 import { Button } from "@/components/ui/button";
 import { TodoProps } from "@/types";
-import { v4 as uuidv4 } from "uuid";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { createTodoList } from "./action";
@@ -18,8 +17,10 @@ export default function PageContent() {
     return [
       ...state,
       {
-        id: uuidv4(),
-        text: todo,
+        id: Math.floor(Math.random() * 1000),
+        completed: false,
+        title: todo,
+        userId: Math.floor(Math.random() * 1000),
       },
     ];
   });
@@ -46,7 +47,7 @@ export default function PageContent() {
       <div>
         {optimisticTodos.map((todo) => (
           <Card key={todo.id}>
-            <CardContent>{todo.text}</CardContent>
+            <CardContent>{todo.title}</CardContent>
           </Card>
         ))}
       </div>

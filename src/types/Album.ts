@@ -1,6 +1,5 @@
-export interface TodoProps {
+export interface Album {
   userId: number;
   id: number;
   title: string;
-  completed: boolean;
 }

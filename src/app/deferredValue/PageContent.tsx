@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import React, { useDeferredValue, useMemo, useState } from "react";
+import React, { Suspense, useDeferredValue, useMemo, useState } from "react";
 import SlowList from "./SlowList";
 
 export default function PageContent() {
@@ -9,7 +9,12 @@ export default function PageContent() {
   const deferredValue = useDeferredValue(value);
 
   const memoizedSlowList = useMemo(
-    () => <SlowList text={deferredValue} />,
+    () => (
+      <Suspense fallback={<p>Loading...</p>}>
+        <SlowList text={deferredValue} />
+      </Suspense>
+    ),
+
     [deferredValue]
   );
 

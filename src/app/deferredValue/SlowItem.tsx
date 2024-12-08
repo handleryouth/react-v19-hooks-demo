@@ -5,8 +5,8 @@ interface SlowItemProps {
 }
 
 export default function SlowItem({ text }: SlowItemProps) {
-  let startTime = performance.now();
+  const startTime = performance.now();
   while (performance.now() - startTime < 1) {}
 
-  return <li className="item">Search Result: {text}</li>;
+  return <li className="item">Rendered list: {text}</li>;
 }

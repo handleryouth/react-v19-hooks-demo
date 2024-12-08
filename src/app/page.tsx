@@ -28,6 +28,10 @@ const HOME_LINK: HomeLinkProps[] = [
     title: "use",
     href: "/use",
   },
+  {
+    title: "useTransition Example",
+    href: "/transition",
+  },
 ];
 
 export const metadata: Metadata = {

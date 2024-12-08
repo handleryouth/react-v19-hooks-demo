@@ -8,13 +8,11 @@ import SubmitButton from "./SubmitButton";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
-type Props = {};
-
 interface FormProps {
   name: string;
 }
 
-export default function PageContent({}: Props) {
+export default function PageContent() {
   const [name, setName] = useState("");
   const {
     register,
