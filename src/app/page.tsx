@@ -2,6 +2,34 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 
+interface HomeLinkProps {
+  href: string;
+  title: string;
+}
+
+const HOME_LINK: HomeLinkProps[] = [
+  {
+    title: "useFormStatus Example",
+    href: "/formStatusExample",
+  },
+  {
+    title: "useActionState Example",
+    href: "/formStateExample",
+  },
+  {
+    title: "useDefferedValue Example",
+    href: "/deferredValue",
+  },
+  {
+    title: "useOptimisticExample",
+    href: "/optimistic",
+  },
+  {
+    title: "use",
+    href: "/use",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Home Page",
 };
@@ -15,29 +43,13 @@ export default function Home() {
       </p>
 
       <div className="flex items-center gap-x-4">
-        <Button asChild>
-          <Link className="no-underline" href="/formStatusExample">
-            useFormStatus Example
-          </Link>
-        </Button>
-
-        <Button asChild>
-          <Link className="no-underline" href="/formStateExample">
-            useActionState Example
-          </Link>
-        </Button>
-
-        <Button asChild>
-          <Link className="no-underline" href="/deferredValue">
-            useDefferedValue Example
-          </Link>
-        </Button>
-
-        <Button asChild>
-          <Link className="no-underline" href="/optimistic">
-            useOptimisticExample
-          </Link>
-        </Button>
+        {HOME_LINK.map(({ href, title }, index) => (
+          <Button asChild key={index}>
+            <Link className="no-underline" href={href}>
+              {title}
+            </Link>
+          </Button>
+        ))}
       </div>
     </div>
   );
